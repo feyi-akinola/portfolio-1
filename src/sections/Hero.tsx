@@ -16,7 +16,9 @@ const Hero = () => {
   useGSAP(() => {       
     const tl = gsap.timeline();
     const descriptionSplitText = new SplitText(descriptionTextRef.current, {
-      type: "lines",
+      type: "words, lines",
+      smartWrap: true,
+
     });
     const headerSplitText = new SplitText(headerRef.current, {
       type: "chars, words",
@@ -43,36 +45,30 @@ const Hero = () => {
   }, []);
 
   // Vars
-  const descriptionText = `
-    I'm a Full Stack Developer who blends design and
-    development to create engaging, performance-driven
-    web experiences with smooth interactions and thoughtful.
-    Built with tools like React, Tailwind, and GSAP.
-  `;
+  const descriptionText = `I blend design and development to create engaging, performance-driven web experiences with smooth interactions and thoughtful - using tools like React, Tailwind, and GSAP. `;
 
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center bg-[url('/grunge-background-2.jpg')]">
-      <div className="absolute max-h-screen inset-0 bg-white/80 z-10"></div>
+    <section id="home" className="min-h-screen flex flex-col justify-end pb-10">
       <div ref={heroRef} className="relative z-20">
         <div style={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0%);" }}
         >
-          <div ref={headerRef} className="flex flex-col justify-center gap-12 pt-16 sm:gap-16">
-            <p className="px-10 text-sm font-light tracking-tighter uppercase text-black">
-              404 No bugs found
+          <div ref={headerRef} className="flex flex-col justify-center gap-4 pt-16 sm:gap-8">
+            <p className="px-10 text-xs sm:text-sm md:text-lg font-medium tracking-[0.5rem] uppercase text-black">
+              Front-end Developer
             </p>
 
             <div className="px-10">
-              <h1 className="flex flex-col flex-wrap gap-12 text-black uppercase banner-text-responsive sm:gap-16 md:block">
+              <h1 className="text-black uppercase banner-text-responsive">
                 Feyisayo Akinola
               </h1>
             </div>
           </div>
         </div>
 
-        <div className="relative px-10 text-black">
+        <div className="relative px-10 tracking-[0.1rem] sm:tracking-[0.3rem] flex justify-center w-screen">
           <div className="absolute inset-x-0 border-t-2"/>
-          <div className="py-12 sm:py-16 text-end">
-            <p ref={descriptionTextRef} className="font-light uppercase value-text-responsive">
+          <div className="py-12 sm:py-16 text-center w-full">
+            <p ref={descriptionTextRef} className="value-text-responsive">
               {descriptionText}
             </p>
           </div>

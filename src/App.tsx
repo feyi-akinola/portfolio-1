@@ -1,10 +1,14 @@
 import { useLayoutEffect, useRef, useState } from "react";
+
+// Sections and components
 import NavBar from "./sections/NavBar";
 import Hero from "./sections/Hero";
+import Skills from "./sections/Skills";
+
+// GSAP
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-// ScrollSmoother requires ScrollTrigger
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; // ScrollSmoother requires ScrollTrigger
 import { SplitText } from "gsap/SplitText";
 
 const App = () => {
@@ -40,6 +44,8 @@ const App = () => {
           <div className="relative w-screen min-h-screen overflow-x-hidden">
             <Hero />
 
+            <Skills />
+
             <section className="min-h-screen bg-amber-500" id="services">
             </section>
           </div>
@@ -53,3 +59,4 @@ export default App;
 
 // TODO: Write name (stylized) in console as easter egg
 // TODO: Edit readme.md
+// IDEA: Fixed top and bottom "cinematic" bars

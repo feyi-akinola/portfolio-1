@@ -109,19 +109,18 @@ const NavBar = ({ smoother }: NavBarProps) => {
         .timeline({ paused: true })
         .to(topLineRef.current, {
           rotate: 45,
-          y: 3.3,
+          y: 3,
           duration: 0.3,
           ease: "power2.inOut",
         })
         .to(bottomLineRef.current, {
           rotate: -45,
-          y: -3.3,
+          y: -3,
           duration: 0.3,
           ease: "power2.inOut",
         }, "<");
         
   }, []);
-
 
   // Show/hide burger icon on scroll
   useEffect(() => {
@@ -167,7 +166,7 @@ const NavBar = ({ smoother }: NavBarProps) => {
                   linksRef.current[index] = el;
                 }
               }}
-              className="hover:text-gold transition-all duration-300 cursor-pointer"
+              className="tracking-tight hover:text-gold transition-all duration-300 cursor-pointer"
             >
               <p onClick={() => goToSection(`#${link.toLowerCase()}`)}>{link}</p>
             </div>
