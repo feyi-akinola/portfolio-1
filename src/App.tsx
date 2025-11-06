@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import NavBar from "./sections/NavBar";
 import Hero from "./sections/Hero";
 import Skills from "./sections/Skills";
+import About from "./sections/About";
 
 // GSAP
 import { gsap } from "gsap";
@@ -46,7 +47,9 @@ const App = () => {
 
             <Skills />
 
-            <section className="min-h-screen bg-amber-500" id="services">
+            <About />
+
+            <section className="min-h-screen" id="services">
             </section>
           </div>
         </div>

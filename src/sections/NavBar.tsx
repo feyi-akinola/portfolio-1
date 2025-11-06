@@ -154,7 +154,10 @@ const NavBar = ({ smoother }: NavBarProps) => {
       { /* Navbar */}
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 w-full h-full px-10 py-28 uppercase bg-black text-white/80 z-50 flex flex-col justify-between gap-y-10 md:w-1/2 md:left-1/2`}
+        className={`fixed backdrop-blur-sm bg-black/80 top-0 left-0 w-full h-full
+          px-10 py-28 uppercase text-white/80 z-50 flex flex-col justify-between
+          gap-y-10 md:w-1/2 md:left-1/2`
+        }
       >
         {/* Links */}
         <div className="flex flex-col gap-y-2 text-5xl md:text-6xl lg:text-8xl">
@@ -166,7 +169,8 @@ const NavBar = ({ smoother }: NavBarProps) => {
                   linksRef.current[index] = el;
                 }
               }}
-              className="tracking-tight hover:text-gold transition-all duration-300 cursor-pointer"
+              className="tracking-tight hover:text-gold transition-all
+                duration-300 cursor-pointer"
             >
               <p onClick={() => goToSection(`#${link.toLowerCase()}`)}>{link}</p>
             </div>
@@ -174,22 +178,32 @@ const NavBar = ({ smoother }: NavBarProps) => {
         </div>
 
         {/* Contact */}
-        <div ref={contactRef} className="flex flex-col flex-wrap justify-between gap-8 md:flex-row">
+        <div ref={contactRef} className="flex flex-col flex-wrap justify-between
+          gap-8 md:flex-row">
           {/* Email */}
-          <div className="font-light">
+          <div className="font-medium">
             <p className="tracking-wider text-white/50">Email</p>
-            <a className="text-xl text-pretty tracking-widest lowercase" href="mailto:info@example.com">feyi.akinola.3005@gmail.com</a>
+            <a 
+              href="feyi.akinola.3005@gmail.com"
+              className="text-lg hover:text-gold transition-all duration-300
+                text-pretty font-bold tracking-widest lowercase"
+            >
+                feyi.akinola.3005@gmail.com
+              </a>
           </div>
 
           {/* Socials */}
-          <div ref={socialsRef} className="font-light">
+          <div ref={socialsRef} className="font-medium">
             <p className="tracking-wider text-white/50">Socials</p>
             <div className="flex flex-col flex-wrap md:flex-row gap-x-2">
               {
                 socials.map((social, index) => (
                   <a
                     key={index}
-                    className={`text-sm leading-lose tracking-wide text-white ${social.hoverColor} transition-colors duration-300 cursor-pointer`}
+                    className={`text-sm leading-lose tracking-wide font-bold
+                      text-white ${social.hoverColor} transition-colors
+                      duration-300 cursor-pointer`
+                    }
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -206,7 +220,11 @@ const NavBar = ({ smoother }: NavBarProps) => {
       { /* Hamburger Menu */}
       <div
         onClick={toggleMenu}
-        className={`fixed text-sm text-white w-14 h-14 md:w-20 md:h-20 top-4 right-10 z-50 flex flex-col justify-center items-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer ${ isOpen || showBurgerIcon ? "opacity-100" : "opacity-0"}`}
+        className={`fixed text-sm text-white w-14 h-14 md:w-20 md:h-20 top-4
+          right-10 z-50 flex flex-col justify-center items-center gap-1
+          transition-all duration-300 bg-gold rounded-full cursor-pointer
+          ${ isOpen || showBurgerIcon ? "opacity-100" : "opacity-0"}`
+        }
         style={ isOpen || showBurgerIcon
           ? { clipPath: "circle(50% at 50% 50%)" }
           : { clipPath: "circle(0% at 50% 50%)" }
@@ -214,11 +232,15 @@ const NavBar = ({ smoother }: NavBarProps) => {
       >
         <span
           ref={topLineRef}
-          className={`block w-8 h-0.5 bg-white rounded-full origin-center transition-all duration-300`}
+          className={`block w-8 h-1 bg-black rounded-full origin-center
+            transition-all duration-300`
+          }
         ></span>
         <span
           ref={bottomLineRef}
-          className={`block w-8 h-0.5 bg-white rounded-full origin-center transition-all duration-300`}
+          className={`block w-8 h-1 bg-black rounded-full origin-center
+            transition-all duration-300`
+          }
         ></span>
       </div>
     </>
@@ -226,3 +248,5 @@ const NavBar = ({ smoother }: NavBarProps) => {
 };
 
 export default NavBar;
+
+// IDEA: Hovering on socials reveals social logo

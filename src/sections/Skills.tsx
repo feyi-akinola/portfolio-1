@@ -42,7 +42,8 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="mt-20 overflow-hidden font-light leading-snug text-center mb-42 contact-text-responsive"
+      className="mt-20 overflow-hidden font-light leading-snug text-center mb-42
+        contact-text-responsive"
     >
       <div id="title-skill-1">
         <p>
@@ -62,7 +63,6 @@ const Skills = () => {
           React
         </p>
       </div>
-
 
       <div
         id="title-skill-3"
@@ -90,3 +90,5 @@ const Skills = () => {
 }
 
 export default Skills;
+
+// TODO: Add: HTML & CSS, Responsive Design, REST APIs, FLutter, Node.js, Git.
